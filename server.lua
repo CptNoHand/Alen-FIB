@@ -97,16 +97,6 @@ QBCore.Commands.Add("lockfib", "Lock The FIB Door", {}, false, function(source, 
     end
 end)
 
-QBCore.Commands.Add("travelny", "Travel to North Yankton and get those criminals", {}, false, function(source, args)
-    local Player = QBCore.Functions.GetPlayer(source)
-    if Player ~= nil then 
-        if (Player.PlayerData.job.name == "police") then
-          TriggerClientEvent('flypolice', source)
-          sendtodiscordaslog(Player.PlayerData.name ..  ' - ' .. Player.PlayerData.license .. ' - ' .. Player.PlayerData.job.name, ' Officer Reached North Yankton')
-        end
-    end
-end)
-
 function sendtodiscordaslog(name, message)
     local data = {
         {
