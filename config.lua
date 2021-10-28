@@ -24,10 +24,10 @@ Config = {
     
     ['Police'] = 'police',--Job Name
     ['PoliceVeh'] = 'police',--Vehicle Name(Police) 
-    ['HeistVeh'] = 'bodhi2',--Vehicle Name( Robbers[North Yankton])
+    ['HeistVeh'] = 'velum2',--Vehicle Name( Robbers[North Yankton])
     ['SanVeh'] = 'gburrito',--Vehicle Name(San Andreas) 
-    ['Reward'] = 10000,--Reward Per Bundle Of Cash 
-    ['PrintedCash'] = 1,--Amount of bundles per trolley 
+    ['Reward'] = 1000,--Reward Per Bundle Of Cash 
+    ['PrintedCash'] = 10,--Amount of bundles per trolley 
     ['RequiredCops'] = 0, -- cops required to lockpick the door / grab cash
 
    ['Cash'] = {

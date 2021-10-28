@@ -53,67 +53,7 @@ RegisterNetEvent('flypolice')
 AddEventHandler('flypolice', function()
 local src = source
 	NYfly()
-    SpawnPoliceVehicle()
 end) 
-
-
-local NPC = { x = 5450.1015, y = -5205.519, z = 78.856681, rotation = 171.6372, NetworkSync = true}
-Citizen.CreateThread(function()
-    SpawnPeds()
-  modelHash = GetHashKey("a_f_m_prolhost_01")
-  RequestModel(modelHash)
-  while not HasModelLoaded(modelHash) do
-       Wait(1)
-  end
-  createNPC() 
-end)
-
-
-
-local NPC2 = { x = 5361.1386, y = -5179.498, z = 82.770988, rotation = 77.337684, NetworkSync = true}
-Citizen.CreateThread(function()
-  modelHash = GetHashKey("a_m_m_og_boss_01")
-  RequestModel(modelHash)
-  while not HasModelLoaded(modelHash) do
-       Wait(1)
-  end
-  createNPC2() 
-end)
-
-
-local NPC3 = { x = -938.6571, y = -2932.306, z = 13.945069, rotation = 320.43283, NetworkSync = true}
-Citizen.CreateThread(function()
-  modelHash = GetHashKey("a_m_y_hasjew_01")
-  RequestModel(modelHash)
-  while not HasModelLoaded(modelHash) do
-       Wait(1)
-  end
-  createNPC3() 
-end)
-
-function createNPC()
-	created_ped = CreatePed(0, modelHash , NPC.x,NPC.y,NPC.z - 1, NPC.rotation, NPC.NetworkSync)
-	FreezeEntityPosition(created_ped, true)
-	SetEntityInvincible(created_ped, true)
-	SetBlockingOfNonTemporaryEvents(created_ped, true)
-	TaskStartScenarioInPlace(created_ped, "WORLD_HUMAN_COP_IDLES", 0, true)
-end
-
-function createNPC2()
-	created_ped = CreatePed(0, modelHash , NPC2.x,NPC2.y,NPC2.z - 1, NPC2.rotation, NPC2.NetworkSync)
-	FreezeEntityPosition(created_ped, true)
-	SetEntityInvincible(created_ped, true)
-	SetBlockingOfNonTemporaryEvents(created_ped, true)
-	TaskStartScenarioInPlace(created_ped, "WORLD_HUMAN_COP_IDLES", 0, true)
-end
-
-function createNPC3()
-	created_ped = CreatePed(0, modelHash , NPC3.x,NPC3.y,NPC3.z - 1, NPC3.rotation, NPC3.NetworkSync)
-	FreezeEntityPosition(created_ped, true)
-	SetEntityInvincible(created_ped, true)
-	SetBlockingOfNonTemporaryEvents(created_ped, true)
-	TaskStartScenarioInPlace(created_ped, "WORLD_HUMAN_COP_IDLES", 0, true)
-end
 
 function DrawText3D(x, y, z, text)
     SetTextScale(0.35, 0.35)
@@ -149,8 +89,8 @@ function NYfly()
 	
 	Wait(1000)
 	anim = false
-	SetEntityCoords(PlayerPedId(), tonumber(5338.01), tonumber(-5215.3), tonumber(81.71) + 0.0, 1, 0, 0, 1)
-	SetEntityHeading(PlayerPedId(), 275.27)
+	SetEntityCoords(PlayerPedId(), tonumber(4465.69), tonumber(-4474.31), tonumber(4.23) + 0.0, 1, 0, 0, 1)
+	SetEntityHeading(PlayerPedId(), 213.28)
 	FreezeEntityPosition(PlayerPedId(), true) 
 	SetDrawMapVisible(true)
 	Wait(8000)
@@ -171,33 +111,7 @@ function NYIpl()
       RequestIpl("farmint")
       RequestIpl("farmint_cap")
       RequestIpl("farm_props")
-      RequestIpl("CS1_02_cf_offmission")
-      RequestIpl("prologue01")
-      RequestIpl("prologue01c")
-      RequestIpl("prologue01d")
-      RequestIpl("prologue01e")
-      RequestIpl("prologue01f")
-      RequestIpl("prologue01g")
-      RequestIpl("prologue01h")
-      RequestIpl("prologue01i")
-      RequestIpl("prologue01j")
-      RequestIpl("prologue01k")
-      RequestIpl("prologue01z")
-      RequestIpl("prologue02")
-      RequestIpl("prologue03")
-      RequestIpl("prologue03b")
-      RequestIpl("prologue04")
-      RequestIpl("prologue04b")
-      RequestIpl("prologue05")
-      RequestIpl("prologue05b")
-      RequestIpl("prologue06")
-      RequestIpl("prologue06b")
-      RequestIpl("prologue06_int")
-      RequestIpl("prologuerd")
-      RequestIpl("prologuerdb ")
-      RequestIpl("prologue_DistantLights")
-      RequestIpl("prologue_LODLights")
-      RequestIpl("prologue_m2_door")  
+      RequestIpl("CS1_02_cf_offmission") 
     end
 
     function IplRemove()
@@ -212,71 +126,21 @@ function NYIpl()
         RemoveIpl("farmint")
         RemoveIpl("farmint_cap")
         RemoveIpl("farm_props")
-        RemoveIpl("CS1_02_cf_offmission")
-        RemoveIpl("prologue01")
-        RemoveIpl("prologue01c")
-        RemoveIpl("prologue01d")
-        RemoveIpl("prologue01e")
-        RemoveIpl("prologue01f")
-        RemoveIpl("prologue01g")
-        RemoveIpl("prologue01h")
-        RemoveIpl("prologue01i")
-        RemoveIpl("prologue01j")
-        RemoveIpl("prologue01k")
-        RemoveIpl("prologue01z")
-        RemoveIpl("prologue02")
-        RemoveIpl("prologue03")
-        RemoveIpl("prologue03b")
-        RemoveIpl("prologue04")
-        RemoveIpl("prologue04b")
-        RemoveIpl("prologue05")
-        RemoveIpl("prologue05b")
-        RemoveIpl("prologue06b")
-        RemoveIpl("prologue06_int")
-        RemoveIpl("prologuerd")
-        RemoveIpl("prologuerdb ")
-        RemoveIpl("prologue_DistantLights")
-        RemoveIpl("prologue_LODLights")
-        RemoveIpl("prologue_m2_door") 
+        RemoveIpl("CS1_02_cf_offmission") 
       end
-
-
+      
+      
       function SpawnGetAwayVehicle()
-            coords = {x = 5353.5063, y = -5207.545, z = 82.773582, h = 2.1963837}
-            QBCore.Functions.SpawnVehicle(Config['HeistVeh'], function(veh)
-                SetVehicleNumberPlateText(veh, "FIB"..tostring(math.random(1000, 9999)))
-                SetEntityHeading(veh, 6.9132146)
-                exports['LegacyFuel']:SetFuel(veh, 100.0)
-                TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
-                SetVehicleEngineOn(veh, true, true)
-                plaquevehicule = GetVehicleNumberPlateText(veh)
-            end, coords, true)
-        end
-
-        function SpawnAirportVehicle()
-            coords = {x = -305.0795, y = -757.656, z =  38.779777, h = 164.21397}
-            QBCore.Functions.SpawnVehicle(Config['SanVeh'], function(veh)
-                SetVehicleNumberPlateText(veh, "Airport"..tostring(math.random(1000, 9999)))
-                SetEntityHeading(veh, 164.21397)
-                exports['LegacyFuel']:SetFuel(veh, 100.0)
-                TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
-                SetVehicleEngineOn(veh, true, true)
-                plaquevehicule = GetVehicleNumberPlateText(veh)
-            end, coords, true)
-        end
-
-
-        function SpawnPoliceVehicle()
-            coords = {x = 5348.1704, y = -5206.754, z = 82.375419, h = 7.0720901}
-            QBCore.Functions.SpawnVehicle(Config['PoliceVeh'], function(veh)
-                SetVehicleNumberPlateText(veh, "LSPD"..tostring(math.random(1000, 9999)))
-                SetEntityHeading(veh, 7.0720901)
-                exports['LegacyFuel']:SetFuel(veh, 100.0)
-                TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
-                SetVehicleEngineOn(veh, true, true)
-                plaquevehicule = GetVehicleNumberPlateText(veh)
-            end, coords, true)
-        end
+        coords = {x = 1073.49, y = 3080.74, z = 40.76, h = 280.76}
+        QBCore.Functions.SpawnVehicle(Config['HeistVeh'], function(veh)
+            SetVehicleNumberPlateText(veh, "FIB"..tostring(math.random(1000, 9999)))
+            SetEntityHeading(veh, 280.76)
+            exports['LegacyFuel']:SetFuel(veh, 100.0)
+            TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(veh))
+            SetVehicleEngineOn(veh, true, true)
+            plaquevehicule = GetVehicleNumberPlateText(veh)
+        end, coords, true)
+    end
 
 CreateThread(function()
     while not Loaded do
@@ -290,46 +154,35 @@ CreateThread(function()
             local fetchmyped = GetEntityCoords(ped)
             local sleep = 1000
             local upcoords = #(fetchmyped - vector3(136.16516, -762.0228, 45.752021))
-            local pcoords = #(fetchmyped - vector3(5449.7421, -5205.994, 78.839469))
-            local nycoords = #(fetchmyped - vector3(5360.5854, -5179.2, 82.783889))
-            local lscoords = #(fetchmyped - vector3(-938.3865, -2931.839, 13.945075))
+            local pcoords = #(fetchmyped - vector3(5092.1, -4682.86, 2.41))
+            local nycoords = #(fetchmyped - vector3(4440.61, -4482.98, 4.29))
+            local lscoords = #(fetchmyped - vector3(1727.85, 3295.38, 41.22))
             local hacktp = #(fetchmyped - vector3(124.73767, -733.198, 242.152))
     
             if pcoords <= 5.0 then
                 sleep = 1
                 if pcoords <= 2.0 then
-                   DrawText3D(5449.7421, -5205.994, 78.839469, "~b~[E]~w~To Sell Printed Notes")
+                   DrawText3D(5092.1, -4682.86, 2.41, "~b~[E]~w~To Sell Printed Notes")
                     if IsControlJustPressed(0, 38) then
                         TriggerServerEvent('AlenFIB:Reward')
                         PlaySoundFrontend(-1, "COLLECTED", "HUD_AWARDS", 0)
                     end
                 end
             end
-            if nycoords <= 5.0 then
-                sleep = 1
-                if nycoords <= 2.0 then
-                   DrawText3D(5360.5854, -5179.2, 82.783889, "~b~[E]~w~To Get Back To Los Santos")
-                    if IsControlJustPressed(0, 38) then
-                        IplRemove()
-                        TriggerEvent('introCinematic:start')
-                    end
-                end
-            end
             if lscoords <= 5.0 then
                 sleep = 1
                 if lscoords <= 2.0 then
-                   DrawText3D(-938.3865, -2931.839, 13.945075, "~b~[E]~w~To Take The Flight")
+                   DrawText3D(1727.85, 3295.38, 41.22, "~b~[E]~w~To Get The Plane")
                     if IsControlJustPressed(0, 38) then
                         TriggerServerEvent("Fib_SV:PlayOnSourceTest", "done", 0.9) 
-                     NYfly()
-                     SpawnGetAwayVehicle()
+                      SpawnGetAwayVehicle()
                     end
                 end
             end
             if hacktp <= 5.0 then
                 sleep = 1
                 if hacktp <= 2.0 then
-                   DrawText3D(124.73767, -733.198, 242.152, "~b~[E]~w~To Hack And Reach San Andreas")
+                   DrawText3D(124.73767, -733.198, 242.152, "~b~[E]~w~To Hack And Reach The Roof")
                     if IsControlJustPressed(0, 38) then
                         Start(2.5)
                     end
@@ -468,7 +321,7 @@ CreateThread(function()
                                                 end
                                             end)
                                             else
-                                                QBCore.Functions.Notify('There currently not enoygh cops online for the mission!')
+                                                QBCore.Functions.Notify('There currently not enough cops online for the mission!')
                                             end
                                         end
                                     end
@@ -601,8 +454,7 @@ CreateThread(function()
                 if output then
                     TeleportPlayerSanAndreas()
                     PlaySoundFrontend(-1, "Mission_Pass_Notify", "DLC_HEISTS_GENERAL_FRONTEND_SOUNDS", 0)
-                    QBCore.Functions.Notify('Take the vehicle and reach the Airport!', 'info')
-                    SpawnAirportVehicle()
+                    QBCore.Functions.Notify('Get a Parachute and get away.', 'info')
                 else
                     QBCore.Functions.Notify('You could not make it!', 'error')
                 end
@@ -721,7 +573,7 @@ function TeleportPlayerSanAndreas()
         Citizen.Wait(50)
     end
     local ped = PlayerPedId()
-    SetEntityCoords(ped, -306.8749, -743.1676, 38.780178)
-    SetEntityHeading(ped, 161.97296)
+    SetEntityCoords(ped, 156.93, -764.59, 258.15)
+    SetEntityHeading(ped, 246.64)
     DoScreenFadeIn(2000)
 end

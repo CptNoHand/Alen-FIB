@@ -41,7 +41,7 @@ AddEventHandler('AlenFIB:Reward', function(cash)
     if Player.Functions.GetItemByName('printedcash') ~= nil then
         Player.Functions.RemoveItem('printedcash',1)
         Player.Functions.AddMoney('cash',Config['Reward'])
-        TriggerClientEvent('QBCore:Notify', src, 'You have successfully completed the Mission and you have earned your reward you can now go back to Los Santos', 'success')
+        TriggerClientEvent('QBCore:Notify', src, 'Mission geschafft, aber noch seid ihr nicht sicher, zurück nach Los Santos', 'success')
         sendtodiscordaslog(Player.PlayerData.name ..  ' - ' .. Player.PlayerData.license .. ' - ' .. Player.PlayerData.job.name, ' Claimed his/her reward for the FIB Heist Mission')
     end
 end)
@@ -93,6 +93,16 @@ QBCore.Commands.Add("lockfib", "Lock The FIB Door", {}, false, function(source, 
         if (Player.PlayerData.job.name == "police") then
   		locked = true
 		TriggerClientEvent('AlenFIB:LockStatus', -1, locked)
+        end
+    end
+end)
+
+QBCore.Commands.Add("travelc", "Fliege nach Kuba, um die Kriminellen zu stoppen", {}, false, function(source, args)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if Player ~= nil then 
+        if (Player.PlayerData.job.name == "police") then
+          TriggerClientEvent('flypolice', source)
+          sendtodiscordaslog(Player.PlayerData.name ..  ' - ' .. Player.PlayerData.license .. ' - ' .. Player.PlayerData.job.name, ' Officer Reached Kuba')
         end
     end
 end)
