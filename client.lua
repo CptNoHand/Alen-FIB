@@ -154,7 +154,7 @@ CreateThread(function()
             local fetchmyped = GetEntityCoords(ped)
             local sleep = 1000
             local upcoords = #(fetchmyped - vector3(136.16516, -762.0228, 45.752021))
-            local pcoords = #(fetchmyped - vector3(5092.1, -4682.86, 2.41))
+            local pcoords = #(fetchmyped - vector3(4991.15, -5884.25, 20.56))
             local nycoords = #(fetchmyped - vector3(4440.61, -4482.98, 4.29))
             local lscoords = #(fetchmyped - vector3(1727.85, 3295.38, 41.22))
             local hacktp = #(fetchmyped - vector3(124.73767, -733.198, 242.152))
@@ -162,7 +162,7 @@ CreateThread(function()
             if pcoords <= 5.0 then
                 sleep = 1
                 if pcoords <= 2.0 then
-                   DrawText3D(5092.1, -4682.86, 2.41, "~b~[E]~w~To Sell Printed Notes")
+                   DrawText3D(4991.15, -5884.25, 20.56, "~b~[E]~w~To Sell Printed Notes")
                     if IsControlJustPressed(0, 38) then
                         TriggerServerEvent('AlenFIB:Reward')
                         PlaySoundFrontend(-1, "COLLECTED", "HUD_AWARDS", 0)
