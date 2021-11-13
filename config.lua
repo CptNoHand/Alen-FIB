@@ -28,7 +28,7 @@ Config = {
     ['SanVeh'] = 'gburrito',--Vehicle Name(San Andreas) 
     ['Reward'] = 10000,--Reward Per Bundle Of Cash 
     ['PrintedCash'] = 1,--Amount of bundles per trolley 
-    ['RequiredCops'] = 0, -- cops required to lockpick the door / grab cash
+    ['RequiredCops'] = 8, -- cops required to lockpick the door / grab cash
 
    ['Cash'] = {
         ['Min'] = 25, -- minimum cash (for each pile)
